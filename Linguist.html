@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Languages in India</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+
+        section {
+            padding: 40px 20px;
+            margin: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        .language {
+            margin-bottom: 30px;
+        }
+
+        .language h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .language p {
+            margin: 0;
+        }
+
+        #interactive-map {
+            height: 400px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+            margin: 0 5px;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #66BB6A;
+        }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <header>
+        <h1>Languages in India</h1>
+        <nav>
+            <ul>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#major-languages">Major Languages</a></li>
+                <li><a href="#interactive-map">Interactive Map</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="introduction">
+        <h2>Introduction</h2>
+        <p>India is a country of linguistic diversity, with several hundred languages spoken across its regions...</p>
+    </section>
+    
+    <section id="major-languages">
+        <h2>Major Languages</h2>
+        <div class="language">
+            <h3>Hindi</h3>
+            <p>Hindi is the most widely spoken language in India...</p>
+        </div>
+        <div class="language">
+            <h3>Telugu</h3>
+            <p>Telugu is spoken in the southern states of Andhrapradhesh and Telangana...</p>
+        </div>
+        <!-- Add more languages as needed -->
+    </section>
+    
+    <section id="interactive-map">
+        <h2>Interactive Map</h2>
+        <div id="map"></div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 Languages in India. Follow us on 
+            <a href="#">Twitter</a>, 
+            <a href="#">Facebook</a>, and 
+            <a href="#">Instagram</a>.
+        </p>
+    </footer>
+    
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Initialize the map
+            var map = L.map('map').setView([20.5937, 78.9629], 4);
+
+            // Set up the OSM layer
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 18,
+            }).addTo(map);
+
+            // Add markers or other interactive elements
+            L.marker([28.6139, 77.2090]).addTo(map)
+                .bindPopup('Hindi: New Delhi')
+                .openPopup();
+
+            L.marker([22.5726, 88.3639]).addTo(map)
+                .bindPopup('Bengali: Kolkata')
+                .openPopup();
+
+            // Add more markers as needed
+        });
+    </script>
+</body>
+</html>
